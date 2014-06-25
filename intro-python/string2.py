@@ -17,7 +17,7 @@
 # Return the resulting string.
 def verbing(s):
     if len(s) >= 3:
-        if s[-3] != "ing":
+        if s[-3:] != "ing":
             s += "ing"
         else:
             s += "ly"
@@ -34,7 +34,7 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
     if s.find("not") < s.find("bad"):
-        s.replace(s[s.find("not"):(s.find["bad"]+3)], "good")
+        s = s.replace(s[s.find("not"):(s.find("bad")+3)], "good")
     return s
 
 
@@ -46,7 +46,7 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    s = a[:(len(a)/2 + len(a)%2)] + b[:(len(b)/2 + len(b)%2) + a[(len(a)/2 + len(a)%2):] + b[(len(b)/2 + len(b)%2):]
+    s = a[:(len(a)/2 + len(a)%2)] + b[:(len(b)/2 + len(b)%2)] + a[(len(a)/2 + len(a)%2):] + b[(len(b)/2 + len(b)%2):]
     return s
 
 
