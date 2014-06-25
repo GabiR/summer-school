@@ -49,6 +49,22 @@ import sys
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
+
+def print_words(filename):
+    dict1 = {}
+    f = open(filename, "r")
+    for line in f:
+        words = line.strip().split()
+        for i in words:
+            i = i.lower()
+            if i in dict1:
+                dict1[i] += 1
+            else:
+                dict1[i] = 1
+    for key, value in sorted(dict1.items()):
+        print key, value
+
+
 def main():
   if len(sys.argv) != 3:
     print 'usage: ./wordcount.py {--count | --topcount} file'
